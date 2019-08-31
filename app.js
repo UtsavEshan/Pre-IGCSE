@@ -16,6 +16,13 @@ app.get('/', function(req, res) {
 });
 
 app.get('/posts', function(req, res) {
+	const posts = [
+		{
+			head: 'biology',
+			desc:
+				'Quis adipisicing est reprehenderit commodo ut sit pariatur dolor elit deserunt enim. Ex eu aliquip excepteur nulla cillum pariatur. Proident irure consequat et dolor exercitation enim ad. Ullamco dolor id qui amet. Sunt quis irure elit commodo qui Lorem cillum est cupidatat velit irure et nostrud.'
+		}
+	];
 	res.render('Posts');
 });
 
