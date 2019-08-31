@@ -17,7 +17,7 @@ app.get('/students', function(req, res) {
 });
 
 app.get('/login', function(req, res) {
-	res.send('login for students');
+	res.render('login');
 });
 
 app.listen(3000, process.env.IP, function() {
