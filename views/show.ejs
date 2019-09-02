@@ -1,7 +1,43 @@
 <% include ./partials/header %>
     <body>
-     <h1>This shall be the page about each and every student in the class</h1>        
-        <script src="" async defer></script>
+     
+        <h1><%=post.desc%></h1>
+
+        <form id="delete-form" action="/posts/<%=post._id %>?_method=DELETE" method="POST">
+            <div class="delete-button">
+                
+            <button class="btn btn-xs btn-danger">Delete</button>
+            </div>
+        </form>
+        <style>
+
+
+            h4,h1,p{
+                color:white;
+                left: 0;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+            }
+            
+            .thumbnail{
+                margin-top: 1.5rem;
+            }
+            
+            body{
+                background: #42b3f5
+            }
+            .jumbotron{
+                background: #42adf5
+            }
+            .delete-button{
+                margin-left: 80.5rem;
+                margin-top: 1rem
+            }
+            </style>
     </body>
 </html>
 

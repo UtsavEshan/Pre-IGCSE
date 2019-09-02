@@ -2,38 +2,53 @@
 
 
 
-<div class="container">
+
         <header class="jumbotron">
             <h1> Welcome to Posts</h1>
             <p>News, tests, incomplete homework, past papers by teachers</p>
             <a id="newpost" class="btn btn-primary btn-large" href="/posts/new">Add New Post</a>
         </header>
-    </div>
-    <h1> fix the outlay </h1>
+    
+    
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
-    <div>
-                <% posts.forEach(function(post){ %>
-                    <div class="col-md-3 col-sm-6">
-                    <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title"><%= post.head%></h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><%= post.subhead%></h6>
-                      <a class="btn btn-primary btn-large" href="/posts/new">More details</a>
-                    </div>
+        <% posts.forEach(function(post){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="border border-black rounded">
+                <div class="thumbnail">
+                   <h4><%=post.head %></h4>
+                   <div class="caption">
+                       <h4><%=post.subhead %></h4>
+                   </div>
+                   <p>
+                       <a href="/posts/<%= post._id %>" class="btn btn-primary">Details</a>
+                   </p>
                 </div>
             </div>
         </div>
         <% }); %>
     </div>
-            <style>
-            .card{
-                margin-bottom: 3rem;                
-            }
-            #newpost{
-                margin-top: 3rem
-                margin-left: 3rem;
-            }
-            </style>
+</div>
+<style>
 
+
+h4,h1,p{
+    color:white
+}
+
+.thumbnail{
+    margin-top: 1.5rem;
+}
+
+.border{
+    margin-bottom: 1.5rem
+}
+
+body{
+    background: #42b3f5
+}
+.jumbotron{
+    background: #42adf5
+}
+</style>
  
  <% include ./partials/footer %>
