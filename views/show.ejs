@@ -1,26 +1,26 @@
 <% include ./partials/header %>
     <body>
      
-        <h1><%=post.desc%></h1>
+        <h1><% = post.desc%></h1>
 
-        <form id="delete-form" action="/posts/<%=post._id %>?_method=DELETE" method="POST">
-            <div class="delete-button">
+        <form id    = "delete-form" action = "/posts/<%=post._id %>?_method=DELETE" method = "POST">
+        <div  class = "delete-button">
                 
-            <button class="btn btn-xs btn-danger">Delete</button>
-            </div>
+        <button class = "btn btn-xs btn-danger">Delete</button>
+        </div>
         </form>
         <style>
 
 
             h4,h1,p{
-                color:white;
-                left: 0;
-    line-height: 200px;
-    margin-top: -100px;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    width: 100%;
+                color      : white;
+                left       : 0;
+                line-height: 200px;
+                margin-top : -100px;
+                position   : absolute;
+                text-align : center;
+                top        : 50%;
+                width      : 100%;
             }
             
             .thumbnail{
@@ -35,7 +35,7 @@
             }
             .delete-button{
                 margin-left: 80.5rem;
-                margin-top: 1rem
+                margin-top : 1rem
             }
             </style>
     </body>

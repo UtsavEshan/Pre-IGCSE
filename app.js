@@ -22,12 +22,12 @@ app.use(express.static(__dirname + '/public')); //makes css work
 app.use(methodOverride('_method'));
 //=============================================
 //home route
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
 	res.render('index');
 });
 //GET ROUTE  post
-app.get('/posts', function(req, res) {
-	post.find({}, function(err, allposts) {
+app.get('/posts', function (req, res) {
+	post.find({}, function (err, allposts) {
 		if (err) {
 			console.log(err);
 		} else {
@@ -36,12 +36,12 @@ app.get('/posts', function(req, res) {
 	});
 });
 // POST ROUTE POST============================
-app.post('/posts', function(req, res) {
+app.post('/posts', function (req, res) {
 	const head = req.body.head;
 	const subhead = req.body.subhead;
 	const desc = req.body.desc;
 	const newpost = { head: head, subhead: subhead, desc: desc }; //PASS EACH ITEM SPERARTELY BECAUSE IT HAS TO RETRIEVE DATA FROM THE FORM AND THEN CREATE A NEW POST
-	post.create(newpost, function(err, newlyCreated) {
+	post.create(newpost, function (err, newlyCreated) {
 		if (err) {
 			console.log(err);
 		} else {
@@ -52,11 +52,11 @@ app.post('/posts', function(req, res) {
 });
 //================================
 //GET ROUTE
-app.get('/posts/new', function(req, res) {
+app.get('/posts/new', function (req, res) {
 	res.render('newpost');
 });
-app.get('/posts/:id', function(req, res) {
-	post.findById(req.params.id, function(err, foundpost) {
+app.get('/posts/:id', function (req, res) {
+	post.findById(req.params.id, function (err, foundpost) {
 		if (err) {
 			console.log(err);
 		} else {
@@ -76,16 +76,16 @@ app.get('/posts/:id', function(req, res) {
 // });
 
 //=========edit route===============
-app.get('/posts/:id/edit', function(req, res) {
-	post.findById(req.params.id, function(err, foundpost) {
+app.get('/posts/:id/edit', function (req, res) {
+	post.findById(req.params.id, function (err, foundpost) {
 		res.render('edit', { post: foundpost });
 	});
 });
 
 // UPDATE post ROUTE
-app.put('/posts/:id', function(req, res) {
+app.put('/posts/:id', function (req, res) {
 	// find and update the correct post
-	post.findByIdAndUpdate(req.params.id, req.body.post, function(err, updatedpost) {
+	post.findByIdAndUpdate(req.params.id, req.body.post, function (err, updatedpost) {
 		if (err) {
 			res.redirect('/posts');
 		} else {
@@ -96,14 +96,14 @@ app.put('/posts/:id', function(req, res) {
 });
 
 // GET ROUTE
-app.get('/students', function(req, res) {
+app.get('/students', function (req, res) {
 	res.render('students');
 });
 // =====GET ROUTE
-app.get('/login', function(req, res) {
+app.get('/login', function (req, res) {
 	res.render('login');
 });
-//RUNS CODE
-app.listen(3000, process.env.IP, function() {
+
+app.listen(3000, process.env.IP, function () {
 	console.log('port is working');
 });
