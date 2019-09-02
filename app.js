@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema({
 	desc: String
 });
 
-const post = mongoose.model('post', postSchema); //ALLOWS ROUTES TO ACCES SCHEMA AS A CONSTANT
+const post = mongoose.model('post', postSchema);  //ALLOWS ROUTES TO ACCES SCHEMA AS A CONSTANT
 
 mongoose.connect('mongodb://localhost:27017/igcse', { useNewUrlParser: true }); //Allows you to connect ot the db
 app.use(bodyParser.urlencoded({ extended: true })); // allows you to transport information
@@ -40,7 +40,7 @@ app.post('/posts', function (req, res) {
 	const head = req.body.head;
 	const subhead = req.body.subhead;
 	const desc = req.body.desc;
-	const newpost = { head: head, subhead: subhead, desc: desc }; //PASS EACH ITEM SPERARTELY BECAUSE IT HAS TO RETRIEVE DATA FROM THE FORM AND THEN CREATE A NEW POST
+	const newpost = { head: head, subhead: subhead, desc: desc };  //PASS EACH ITEM SPERARTELY BECAUSE IT HAS TO RETRIEVE DATA FROM THE FORM AND THEN CREATE A NEW POST
 	post.create(newpost, function (err, newlyCreated) {
 		if (err) {
 			console.log(err);
